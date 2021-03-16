@@ -1,6 +1,10 @@
 package main
 
-import "testing"
+import (
+	"fmt"
+	"github.com/stretchr/testify/assert"
+	"testing"
+)
 
 func TestMax(t *testing.T) {
 	// Arrange
@@ -14,7 +18,7 @@ func TestMax(t *testing.T) {
 		},
 		{
 			numbers:  []int{0, -2, -10},
-			expected: 0,
+			expected: -10,
 		},
 		{
 			numbers:  []int{},
@@ -30,10 +34,9 @@ func TestMax(t *testing.T) {
 			testCase.numbers, result)
 
 		// Assert
-		if result != testCase.expected {
-			t.Errorf("Incorrect result. Expect %d, got %d",
-				testCase.expected, result)
-		}
+		assert.Equal(t, testCase.expected, result,
+			fmt.Sprintf("Incorrect result. Expect %d, got %d",
+				testCase.expected, result))
 	}
 
 }
