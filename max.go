@@ -13,6 +13,20 @@ func Max(numbers []int) int {
 	return max
 }
 
+func MaxIndex(numbers []int) int {
+	var max int
+	var index int
+
+	for i, number := range numbers {
+		if number > max {
+			max = number
+			index = i
+		}
+	}
+	return index
+}
+
 func main() {
 	fmt.Println(Max([]int{2, 1, 6, 3, 8, 32, 16}))
+	//fmt.Println(MaxIndex([]int{2, 1, 6, 3, 8, 32, 16}))
 }
